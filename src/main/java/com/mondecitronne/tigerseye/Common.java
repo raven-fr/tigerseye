@@ -1,6 +1,5 @@
 package com.mondecitronne.tigerseye;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +7,7 @@ import com.mondecitronne.tigerseye.block.BlockTigersEyeOre;
 import com.mondecitronne.tigerseye.item.ItemTigersEye;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -21,7 +21,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 public class Common {
 	public static Block tigersEyeOre;
 	public static Block tigersEyeBlock;
-	public static Item itemTigersEyeOre;
+
 	public static Item itemTigersEye;
 	
 	public static List<Block> blocks = new ArrayList<Block>();
@@ -31,12 +31,14 @@ public class Common {
 	public static void registerBlocks(Register<Block> event) {
 		IForgeRegistry<Block> reg = event.getRegistry();
 		tigersEyeOre = registerBlock(reg, new BlockTigersEyeOre(), "tigers_eye_ore");
+		tigersEyeBlock = registerBlock(reg, new Block(Material.ROCK).setHardness(2.0f).setResistance(3.0f), "tigers_eye_block");
 	}
 	
 	@SubscribeEvent
 	public static void registerItems(Register<Item> event) {
 		IForgeRegistry<Item> reg = event.getRegistry();
-		itemTigersEyeOre = registerItemBlock(reg, tigersEyeOre);
+		registerItemBlock(reg, tigersEyeOre);
+		registerItemBlock(reg, tigersEyeBlock);
 		itemTigersEye = registerItem(reg, new ItemTigersEye(), "tigers_eye");
 	}
 

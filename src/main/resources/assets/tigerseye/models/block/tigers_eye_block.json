@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "tigerseye:blocks/tigers_eye_block_side",
+        "down": "tigerseye:blocks/tigers_eye_block_top",
+        "up": "tigerseye:blocks/tigers_eye_block_top",
+        "north": "tigerseye:blocks/tigers_eye_block_side",
+        "east": "tigerseye:blocks/tigers_eye_block_side",
+        "south": "tigerseye:blocks/tigers_eye_block_side",
+        "west": "tigerseye:blocks/tigers_eye_block_side"
+    }
+}
