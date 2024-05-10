@@ -1,6 +1,11 @@
 package com.mondecitronne.tigerseye.proxy;
 
+import com.mondecitronne.tigerseye.Common;
+
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,6 +19,9 @@ public class ClientProxy extends Proxy {
 	}
 
 	@SubscribeEvent
-	public static void registerModels(ModelRegistryEvent event) {
+	public static void onRegisterModelsEvent(ModelRegistryEvent event) {
+		for (Item item : Common.items) {
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "normal"));
+		}
 	}
 }

@@ -3,7 +3,11 @@ package com.mondecitronne.tigerseye;
 import java.io.File;
 
 import org.apache.logging.log4j.Logger;
+
+
 import com.mondecitronne.tigerseye.proxy.Proxy;
+
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -14,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class TigersEye {
 	public static final String MODID = "tigerseye";
 	public static final String NAME = "Tiger's Eye";
-	public static final String VERSION = "2.0";
+	public static final String VERSION = "0.0";
 
 	@SidedProxy(clientSide = "com.mondecitronne.tigerseye.proxy.ClientProxy", serverSide = "com.mondecitronne.tigerseye.proxy.ServerProxy")
 	public static Proxy proxy;
@@ -40,14 +44,12 @@ public class TigersEye {
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-
-	public File getDataDir() {
-		return dataDir;
+	
+	public static ResourceLocation resource(String name) {
+		return new ResourceLocation(TigersEye.MODID, name);
 	}
-
-	public void putDataDirIn(File dir) {
-		assert (dataDir == null);
-		dataDir = new File(dir, MODID + "_data");
-		dataDir.mkdir();
+	
+	public static String prefixName(String name) {
+		return String.format("%s.%s", TigersEye.MODID, name);
 	}
 }
