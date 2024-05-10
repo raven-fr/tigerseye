@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.mondecitronne.tigerseye.block.BlockTigersEyeOre;
 import com.mondecitronne.tigerseye.item.ItemTigersEye;
+import com.mondecitronne.tigerseye.item.ItemTigersEyeArmor;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -26,6 +28,10 @@ public class Common {
 	public static Block tigersEyeBlock;
 
 	public static Item itemTigersEye;
+	public static Item itemTigersEyeBoots;
+	public static Item itemTigersEyeLeggings;
+	public static Item itemTigersEyeChestplate;
+	public static Item itemTigersEyeHelmet;
 	
 	public static List<Block> blocks = new ArrayList<Block>();
 	public static List<Item> items = new ArrayList<Item>();
@@ -42,7 +48,12 @@ public class Common {
 		IForgeRegistry<Item> reg = event.getRegistry();
 		registerItemBlock(reg, tigersEyeOre);
 		registerItemBlock(reg, tigersEyeBlock);
+		
 		itemTigersEye = registerItem(reg, new ItemTigersEye(), "tigers_eye");
+		itemTigersEyeBoots = registerItem(reg, new ItemTigersEyeArmor(EntityEquipmentSlot.FEET), "tigers_eye_boots");
+		itemTigersEyeLeggings = registerItem(reg, new ItemTigersEyeArmor(EntityEquipmentSlot.LEGS), "tigers_eye_leggings");
+		itemTigersEyeChestplate = registerItem(reg, new ItemTigersEyeArmor(EntityEquipmentSlot.CHEST), "tigers_eye_chestplate");
+		itemTigersEyeHelmet = registerItem(reg, new ItemTigersEyeArmor(EntityEquipmentSlot.HEAD), "tigers_eye_helmet");
 	}
 
 	protected static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T block, String name) {
