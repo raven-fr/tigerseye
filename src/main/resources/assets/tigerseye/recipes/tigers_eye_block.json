@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "identifier",
+    "pattern": [
+        "AAA",
+        "AAA",
+        "AAA"
+    ],
+    "key": {
+        "A": {
+            "item": "tigerseye:tigers_eye",
+            "data": 0,
+            "count": 1
+        }
+    },
+    "ingredients": [
+        {
+            "item": "tigerseye:tigers_eye",
+            "data": 0,
+            "count": 9
+        }
+    ],
+    "result": {
+        "item": "tigerseye:tigers_eye_block",
+        "data": 0,
+        "count": 1
+    }
+}

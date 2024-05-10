@@ -11,9 +11,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
@@ -31,7 +34,7 @@ public class Common {
 	public static void registerBlocks(Register<Block> event) {
 		IForgeRegistry<Block> reg = event.getRegistry();
 		tigersEyeOre = registerBlock(reg, new BlockTigersEyeOre(), "tigers_eye_ore");
-		tigersEyeBlock = registerBlock(reg, new Block(Material.ROCK).setHardness(2.0f).setResistance(3.0f), "tigers_eye_block");
+		tigersEyeBlock = registerBlock(reg, new Block(Material.ROCK).setHardness(0.8f), "tigers_eye_block");
 	}
 	
 	@SubscribeEvent
@@ -41,7 +44,6 @@ public class Common {
 		registerItemBlock(reg, tigersEyeBlock);
 		itemTigersEye = registerItem(reg, new ItemTigersEye(), "tigers_eye");
 	}
-
 
 	protected static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T block, String name) {
 		block.setTranslationKey(TigersEye.prefixName(name));

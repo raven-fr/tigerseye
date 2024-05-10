@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = TigersEye.MODID, name = TigersEye.NAME, version = TigersEye.VERSION)
 public class TigersEye {
@@ -38,6 +39,7 @@ public class TigersEye {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
+		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 	}
 
 	@Mod.EventHandler
